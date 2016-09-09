@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # One line comment!!!
 print "Hello world!"
 print "Hello again!"

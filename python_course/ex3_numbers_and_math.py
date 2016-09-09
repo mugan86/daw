@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Numbers and match
 Names and simbols to use in math / numbers exercise
@@ -17,3 +18,7 @@ Names and simbols to use in math / numbers exercise
 sum = 1 + 2
 
 print '1 + 2 = %s' % (sum)
+
+minus = 20 - 34
+
+print '20 - 34 = %s' % (minus)
