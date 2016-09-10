@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Variables - Exercise 2
+# Program name: Variables - Exercise 2
+# Programmer: Anartz Muxika
+# Modify: 2016/09/07
+
 """
 Types variables exercise:
 

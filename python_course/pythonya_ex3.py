@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+# Program name: Example with differents comments
+# Programmer: Anartz Muxika
+# Modify: 2016/09/09
+
 """
 Comments definitions in python scripts
 
@@ -7,10 +11,10 @@ Comments definitions in python scripts
 """
 
 # One line comment, define 3 int values and one string value
-year=1986       #birth year
-month=1         #bitrh month
-day=10
-name='Anartz'   #my name
+year = 1986       #birth year
+month = 1         #bitrh month
+day = 10
+name = 'Anartz'   #my name
 
 print('%s birthday is %d/%d/%d' % (name, year, month, day))
 
