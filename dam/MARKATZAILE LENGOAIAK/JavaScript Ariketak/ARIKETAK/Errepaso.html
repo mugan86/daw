@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title></title>
+	<script>
+		function hasi()
+		{
+			document.Datuak.izena.value=""
+			document.Datuak.izena.focus();
+			document.Datuak.izena.select();
+			document.Datuak.abizenak.value="";
+			checkOff();
+			document.Datuak.ok.value="";
+
+
+		}
+		function checkOn()
+		{
+			var i=0;
+			form=document.forms["Datuak"];
+			for(i=0; i<form.elements.length;i++)
+			{
+				if (form.elements[i].type=="checkbox")
+				{
+					form.elements[i].checked=1;
+				}
+			}
+		}
+		function checkOff()
+		{
+			var i=0;
+			form=document.forms["Datuak"];
+			for(i=0; i<form.elements.length;i++)
+			{
+				if (form.elements[i].type=="checkbox")
+				{
+					form.elements[i].checked=0;
+				}
+			}
+		}
+		function konprobatu()
+		{
+			var izena=document.Datuak.izena.value;
+			var abizenak=document.Datuak.abizenak.value
+			if (isNaN(izena) && isNaN(abizenak))
+			{
+				document.Datuak.ok.value="TRUE";
+			}
+			else
+			{
+				alert("Ezin da izena edo abizena hutsa izan!!!");
+				hasi();
+			}
+		}
+	</script>
+</head>
+<body onLoad="hasi()">
+	<form name="Datuak">
+			<p><label>Sartu izena: </label><br>
+			<input type="text" name="izena" placeholder="Anartz" required></p>
+			<p><label>Sartu abizenak</label>
+			<input type="text" name="abizenak" placeholder="Mugika Ledo" required></p>
+			<p><label>Nondik aurkitu duzu webgune hau?</label><br>
+			<input type="checkbox" name="aukera1"/> Google<br>
+			<input type="checkbox" name="aukera2"/> Twitter<br>
+			<input type="checkbox" name="aukera3"/> Facebook<br>
+			<input type="checkbox" name="aukera4"/> Youtube</p>
+			<p><a href="javascript:checkOn()">Guztiak markatu</a> || <a href="javascript:checkOff()">Guztiak desmarkatu</a></p>
+			<label>Zer sektoreko langile-ikaslea zara?</label><br>
+			<select>
+				<option value="Administraritza">Administraritza</option>
+				<option value="Telekomunikazioak">Telekomunikazioak</option>
+				<option value="Informatika - Hardaware">Informatika - Hardware</option>
+				<option value="Informatika - Software">Informatika - Software</option>
+				<option value="Kirol - Arloa">Kirola</option>
+				<option value="Mekanika">Mekanika</option>
+				<option value="Automatak">Automatak</option>
+			</select>
+			<p>
+			<input type="Button" value="Bidali" onClick="konprobatu()">
+			<input type="Button" value="Hasi" onClick="hasi()"></p>
+			<input type="text" name="ok" disabled="false">
+	</form>
+</body>
+</html>

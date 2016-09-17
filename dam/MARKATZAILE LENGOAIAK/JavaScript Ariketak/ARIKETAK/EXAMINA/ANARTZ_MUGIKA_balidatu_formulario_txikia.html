@@ -1,0 +1,256 @@
+<html>
+<head>
+	<title>Formularioa balidatu - ANARTZ MUGIKA</title>
+	<link rel="stylesheet" href="estiloa.css" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<script>
+	function hasieratu()
+	{
+		document.form1.izena.value="";
+		document.form1.izena.focus();
+		document.form1.adina.value="";
+		document.form1.kontaktua.value=1;
+		checkOff();
+	}
+	function checkOff()
+	{
+		var i=0;
+		form=document.forms["form1"];
+		for(i=0; i<form.elements.length;i++)
+		{
+			if (form.elements[i].type=="checkbox" )
+			{
+				form.elements[i].checked=0;
+			}
+		}
+	}
+	function kontatuAukerak()
+	{
+		var i=0;
+		var kontagailu=0;
+		var errore=false;
+		var form=document.forms["form1"];
+		for(i=0; i<form.elements.length;i++)
+		{
+			if (form.elements[i].type=="checkbox" )
+			{
+				if(form.elements[i].checked==1)
+				{
+					kontagailu++;
+				}
+			}
+		}
+		if (kontagailu<2)
+		{
+			errore=true;
+			//alert("Bi aukeratu behar dira gutxienez!!!!!");
+		}
+		/*else
+		{
+			alert("Ondo");
+		}*/
+		return errore;
+	}
+	function konprobatuDena()
+	{
+		var izena=document.form1.izena.value;
+		var erroreIzena=izenaKonprobatu(izena);
+		var adina= document.form1.adina.value;
+		var erroreAdina=adinaKonprobatu(adina);
+		var kontaktua=document.form1.kontaktua.value;
+		var erroreKontaktua=kontaktuaKonprobatu(kontaktua);
+		var erroreAukerak= kontatuAukerak();
+		erroreakBistaratu(erroreIzena, erroreAdina, erroreKontaktua, erroreAukerak);
+	}
+	function erroreakBistaratu(erroreIzena, erroreAdina, erroreKontaktua, erroreAukerak)
+	{
+			if (erroreIzena==true && erroreAdina==true && erroreKontaktua==true && erroreAukerak== true)//1111
+			{
+				//alert("true true true true");
+				alert("Datu guztiak okerrak dira!!!\n\n+ Izena ezin du hutsa izan eta ezin da dena zenbakiz egon. \n+ Adina zenbaki osoa eta 18 edo gehiago izan behar du.\n+ Kontaktu aukera zuzen bat hartu behar da.\n+ Gutxienez bi gustu aukeratu behar dira!!!");
+				hasieratu();
+			}
+			else if (erroreIzena==true && erroreAdina==true && erroreKontaktua==true && erroreAukerak== false)//1110
+			{
+				//alert("true true false");
+				alert("Izena, adina eta kontaktu aukerak okerrak dira!!!\n\n+ Izena ezin du hutsa izan eta ezin da dena zenbakiz egon. \n+ Adina zenbaki osoa eta 18 edo gehiago izan behar du.\n+ Kontaktu aukera zuzen bat hartu behar da.");
+				document.form1.izena.value="";
+				document.form1.izena.focus();
+				document.form1.adina.value="";
+			}
+			else if (erroreIzena==true && erroreAdina==true && erroreKontaktua==false && erroreAukerak== true)//1101
+			{
+				alert("Izena,adina eta aukeratutako gustu kopuru desegokiak!!!\n\n+ Izena ezin du hutsa izan eta ezin da dena zenbakiz egon.\n+ Adina zenbaki osoa eta 18 edo gehiago izan behar du.\n+ Gutxienez bi gustu aukeratu behar dira!!!");
+				document.form1.izena.value="";
+				document.form1.izena.focus();
+				document.form1.adina.value="";				
+			}
+			else if (erroreIzena==true && erroreAdina==true && erroreKontaktua==false && erroreAukerak==false)//1100
+			{
+				alert("Izena eta adina desegokiak!!!\n\n+ Izena ezin du hutsa izan eta ezin da dena zenbakiz egon.\n+ Adina zenbaki osoa eta 18 edo gehiago izan behar du.");
+				document.form1.izena.value="";
+				document.form1.izena.focus();
+				document.form1.adina.value="";
+			}
+			else if (erroreIzena==true && erroreAdina==false && erroreKontaktua==true && erroreAukerak==true)//1011
+			{
+				alert("Izena, kontaktuan hartutako aukera eta gustu kopurua okerrak dira!!!\n\n+ Izena ezin du hutsa izan eta ezin da dena zenbakiz egon.\n+ Kontaktu aukera zuzen bat hartu behar da.\n+ Gutxienez bi gustu aukeratu behar dira!!!");
+				document.form1.kontaktua.value=1;
+				document.form1.izena.focus();
+				document.form1.izena.value="";
+			}
+			else if (erroreIzena==true && erroreAdina==false && erroreKontaktua==true && erroreAukerak==false)//1010
+			{
+				alert("Izena eta kontaktuan hartutako aukera okerrak dira!!!\n\n+ Izena ezin du hutsa izan eta ezin da dena zenbakiz egon.\n+ Kontaktu aukera zuzen bat hartu behar da.");
+				document.form1.izena.focus();
+				document.form1.izena.value="";
+			}
+			else if (erroreIzena==true && erroreAdina==false && erroreKontaktua==false && erroreAukerak==true)//1001
+			{
+				alert("Izena eta hartu beharreko gustu kopurua desegokiak dira!!!\n\n+ Izena ezin du hutsa izan eta ezin da dena zenbakiz egon.\n+ Gutxienez bi gustu aukeratu behar dira!!!");
+				document.form1.izena.value="";
+				document.form1.izena.focus();
+				
+			}
+			else if (erroreIzena==true && erroreAdina==false && erroreKontaktua==false && erroreAukerak==false)//1000
+			{
+				alert("Izena okerra da!!!\n\n+ Izena ezin du hutsa izan eta ezin da dena zenbakiz egon.");
+				document.form1.izena.value="";
+				document.form1.izena.focus();
+			}
+			else if (erroreIzena==false && erroreAdina==true && erroreKontaktua==true && erroreAukerak==true)//0111
+			{
+				alert("Adina, kontaktuko aukera eta gustu kopuru desegokiak dira!!!\n\n+ Adina zenbaki osoa eta 18 edo gehiago izan behar du.\n+ Kontaktu aukera zuzen bat hartu behar da.\n+ Gutxienez bi gustu aukeratu behar dira!!!");
+				document.form1.adina.value="";
+				document.form1.adina.focus();
+			}
+			else if (erroreIzena==false && erroreAdina==true && erroreKontaktua==true && erroreAukerak==false)//0110
+			{
+				alert("Adina eta kontaktuko aukera desegokiak dira!!!\n\n+ Adina zenbaki osoa eta 18 edo gehiago izan behar du.\n+ Kontaktu aukera zuzen bat hartu behar da.");
+				document.form1.adina.value="";
+				document.form1.adina.focus();
+			}
+			else if (erroreIzena==false && erroreAdina==true && erroreKontaktua==false && erroreAukerak==true)//0101
+			{
+				alert("Adina eta gustu kopurua desegokiak dira!!!\n\n+ Adina zenbaki osoa eta 18 edo gehiago izan behar du.\n+ Gutxienez bi gustu aukeratu behar dira!!!");
+				document.form1.adina.value="";
+				document.form1.adina.focus();
+			}
+			else if (erroreIzena==false && erroreAdina==true && erroreKontaktua==false && erroreAukerak==false)//0100
+			{
+				alert("Adina ez da zuzena!!!\n\n+ Adina zenbaki osoa eta 18 edo gehiago izan behar du.");
+				document.form1.adina.value="";
+				document.form1.adina.focus();
+			}
+			else if (erroreIzena==false && erroreAdina==false && erroreKontaktua==true && erroreAukerak==true)//0011
+			{
+				alert("Kontaktuko aukera eta gustu kopuru desegokiak dira!!!\n\n+ Kontaktu aukera zuzen bat hartu behar da.\n+ Gutxienez bi gustu aukeratu behar dira!!!");
+				document.form1.kontaktua.focus();
+			}
+			else if (erroreIzena==false && erroreAdina==false && erroreKontaktua==true && erroreAukerak==false)//0010
+			{
+				alert("Kontaktuko aukera desegokia!!!\n\n+ Kontaktu aukera zuzen bat hartu behar da.");
+				document.form1.kontaktua.focus();
+			}
+			else if (erroreIzena==false && erroreAdina==false && erroreKontaktua==false && erroreAukerak==true)//0001
+			{
+				alert("Gustu kopuru desegokia!!!\n\n+ Gutxienez bi gustu aukeratu behar dira!!!");
+			}
+			else //0000
+			{
+				denaZuzena();
+			}
+	}
+	function izenaKonprobatu(izena)
+	{
+		var errore=false;
+		if(!isNaN(izena))
+		{
+			//zenbakiak badira honen testua errorea
+			errore=true;
+		}
+		return errore;
+	}
+	function adinaKonprobatu(adina)
+	{
+		var errore=false;
+		if(isNaN(adina) || adina=="" || adina<18)
+		{
+			errore=true;
+		}
+		return errore;
+		
+	}
+	function kontaktuaKonprobatu(kontaktua)
+	{
+		var errore=false;
+		if (kontaktua==1)
+		{
+			errore=true;
+		}
+		return errore;
+	}
+	function balidatu_formulario_txikia()
+	{
+		//izenaKonprobatu();	
+		konprobatuDena();
+		//kontatuAukerak();
+	}
+	function denaZuzena()
+	{
+		alert("Formularioan sartu ditugun datuak zuzenak dira. Eskerrikasko datuak bidaltzearren!!!");
+	}
+	</script>
+</head>
+<body onLoad="hasieratu()">
+	<div class="content">
+		<h2 class="datuTit">Sartu datuak: </h2>
+		<div class="irudia"><img src="img\form_icon.jpg" alt="Irudia"/></div>
+		<div class="form">
+			
+			<form name="form1">
+				<table  border="1">
+				  <tr>
+				    <td>Izena: </td>
+				    <td><input type="text" name="izena" size="28"></td>
+				  </tr>
+				  <tr>
+				    <td>Adina: </td>
+				    <td><input type="text" name="adina" size="4" maxlength="2"></td>
+				  </tr>
+				  <tr>
+				    <td>Kontaktu mota: </td>
+				    <td>
+				    	<select name="kontaktua">
+							  <option value="1">Aukeratu</option>
+							  <option value="2">Kontaktu komertziala</option>
+							  <option value="3">Bezeroari arreta</option>
+							  <option value="4">Hornitzaileekin kontaktua</option>
+						</select> 
+				    </td>
+				  </tr>
+				  <tr>
+				    <td>Zure gustoak<br> (2 gutxienez): </td>
+				    <td>
+				    	<input name="aukera1" type="checkbox" />Kirolak<br>
+						<input name="aukera2" type="checkbox"/>Bidaiatzea<br>
+						<input name="aukera3" type="checkbox" />Irakurri<br>
+						<input name="aukera4" type="checkbox" />Ikasi<br>
+				    </td>
+				  </tr>
+				  <tr>
+				    <td colspan="2" align="center"><input type="Button" name="bidali" value="Bidali" onClick="balidatu_formulario_txikia()"></td>
+				  </tr>
+				</table>
+			</form>
+		</div>
+
+		<div class="footer">
+			<p>Copyright &copy; 2013 - Balidatu formularioa - Anartz Mugika<p>
+		</div>
+	</div>
+	
+	
+
+</body>
+</html>

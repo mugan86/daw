@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>The Piano | Created By Dieter Schneider 2006 | www.csstemplateheaven.com</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link href="css/ui-lightness/jquery-ui-1.10.2.custom.css" rel="stylesheet">
+		<script src="js/jquery-1.9.1.js"></script>
+		<script src="js/jquery-ui-1.10.2.custom.js"></script> 
+		<script>
+			$(document).ready(function(){
+				   $("#data").datepicker({
+				      	showOn: 'both',
+				      	buttonImage: 'img/calendar.png',
+      					buttonImageOnly: true,
+				      	changeYear: true,
+				      	numberOfMonths: 1,
+				   });
+			})
+		</script>
+		<script>
+			
+			function izenaKonprobatu(izena)
+			{
+				
+				if(!isNaN(izena) || izena.equals(""))
+				{
+					//zenbakiak badira honen testua errorea
+					//alert("Izena okerra, ezin du hutsa izan eta karaktereak eduki behar ditu!!!");
+					return false;
+				}
+				return true;
+				
+			}
+			function abizenaKonprobatu(abizena)
+			{
+				
+				if(!isNaN(abizena) || abizena.equals(""))
+				{
+					//alert("Abizena okerra, ezin du hutsa izan eta karaktereak eduki behar ditu!!!");
+					//zenbakiak badira honen testua errorea
+					return false;
+				}
+				return true;
+				
+				
+			}
+			
+	
+			function konprobatuAfizioKopurua()
+			{
+				form=document.forms["form1"];
+				var kontagailu=0;
+				var i=0;
+				for(i=0; i<form.elements.length;i++)
+				{
+					if (form.elements[i].type=="checkbox" )
+					{
+						if(form.elements[i].checked==1)
+						{
+							kontagailu++;
+							if (kontagailu>3)
+							{
+								alert("EZIN DA 3 afizioa baino gehiago aukeratu!!!");
+								form.elements[i].checked=0;
+							}
+						}
+					}
+				}	
+				
+			}
+			function adinaKonprobatu()
+			{
+				var adina= document.form1.adina.value;
+				if ((adina<18) || (adina.equals(""))||(adina>99))
+				{
+					//alert("Adina 18 eta 99 bitartean");
+					return false;
+				}
+				return true;
+			}
+			function passKonprobatu()
+			{
+				var pass1= document.form1.pass1.value;
+				var pass2= document.form1.pass2.value;
+
+				console.log(pass1);
+
+				if (typeof pass1 === undefined || pass1 === null || typeof pass2 === undefined || pass2 === null || pass1 === "" || pass2 === "")
+				{
+					alert("Ez dira pasahitza berdinak edo hutsak dira");
+					return false;
+				}
+				else return true;
+			}
+			function balidatu()
+			{
+				var correct;
+				
+				console.log(izenaKonprobatu(document.form1.izena.value));//
+				
+				correct=abizenaKonprobatu(document.form1.abizena.value);
+				
+				correct = adinaKonprobatu();
+				
+				correct = passKonprobatu();
+
+				console.log("Balidazioa: " + correct);
+					
+			}
+		</script>
+		<script>
+			$(document).ready(function(){
+				$(".show").click(function(){
+					alert("Formularioa agertzen!!!");
+					$(".form").show(1000);
+				});
+				$(".hide").click(function(){
+					alert("Formularioa desagertzen!!!");
+					$(".form").hide(1000);
+				});
+				
+
+			}); 
+			$(document).ready(function(){
+			$(".mugitu").click(function(gertaera){
+				gertaera.preventDefault();
+				$(".form").fadeOut(2000,function(){
+					$(".form").fadeIn(2000); 
+					$(".form").fadeOut(2000, function(){
+						$(".form").fadeIn(2000);					
+					});
+				});
+				
+				});
+			});
+		</script>
+
+	</head>
+
+<body>
+
+	<div id="container">
+
+	<div id="header">
+	<div id="navcontainer">
+	<ul id="navlist">
+	<li >Sartu zure datuak</li>
+	<li>Sartu zure datuak</li>
+	<li><a href="#" class="mugitu">Desagertu - Agertu bi aldiz</a></li>
+	<li><a href="#" class="show">Erakutsi formularioa</a></li>
+	<li><a href="#" class="hide">Ezkutatu formularioa</a></li>
+	</ul>
+	</div>
+	</div>
+
+		<div id="content_top">
+
+		<h1 id="heading_piano">Sartu zure datuak</h1>
+
+		<h2>Music is the divine way to tell beautiful, poetic things to the heart.</h2>
+			
+
+		</div>
+		
+		<div id="content">
+			<div class="form">
+			<form name="form1">
+				<table  border="1">
+				  <tr>
+				    <td>Izena: </td>
+				    <td><input type="text" name="izena" pattern="^[A-Z]{1}.+$" placeholder="Anartz" autofocus size="28"></td>
+				  </tr>
+				  <tr>
+				    <td>Abizena: </td>
+				    <td><input type="text" name="abizena" pattern="^[A-Z]{1}.+$"  placeholder="Mugika" size="28"></td>
+				  </tr>
+				  
+				  <tr>
+				  	<td>Jaiotza-data</td>
+				  	<!--Disabled jarri dut bakarrik data aukeratu ahal izateko egutegi ikonoa sakatuz-->
+				  	<td><input type="date" name="dat" id="data" placeholder="2013-02-09"  > </td>
+				  </tr>
+				  <tr>
+				    <td>Probintzia: </td>
+				    <td>
+				    	<select name="probintzia">
+							  <option value="Gipuzkoa">Gipuzkoa</option>
+							  <option value="Bizkaia">Bizkaia</option>
+							  <option value="Araba">Araba</option>
+						</select> 
+				    </td>
+				  </tr>
+				  <tr>
+				  	<td>E-maila:</td>
+				  	<td><input type="email" name="posta"  placeholder="anartz@mugika.com" required> </td>
+				  </tr>
+				  <tr>
+				    <td>Adina: </td>
+				    <td><input type="text" name="adina" size="4" placeholder="18" maxlength="2"></td>
+				  </tr>
+				  <tr>
+				    <td>Afizioak<br> (3 gehienez): </td>
+				    <td>
+				    	<input name="aukera1" type="checkbox" onClick="konprobatuAfizioKopurua()"/>Lo egin<br>
+						<input name="aukera2" type="checkbox" onClick="konprobatuAfizioKopurua()"/>Informatika<br>
+						<input name="aukera3" type="checkbox" onClick="konprobatuAfizioKopurua()"/>Parranda<br>
+						<input name="aukera4" type="checkbox" onClick="konprobatuAfizioKopurua()"/>Kirola<br>
+						<input name="aukera5" type="checkbox" onClick="konprobatuAfizioKopurua()"/>Ligatzea<br>
+				    </td>
+				  </tr>
+				  <tr>
+				    <td>Pasahitza: </td>
+				    <td><input type="password" name="pass1" size="28" ></td>
+				  </tr>
+				  <tr>
+				    <td>Errepikatu Pasahitza: </td>
+				    <td><input type="password" name="pass2"  size=·"28"></td>
+				  </tr>
+				  <tr>
+				    <td colspan="2" align="center"><input type="Button" name="bidali" value="Bidali" onClick="balidatu()"> <input type="reset" name="reset" value="Garbitu"></td>
+				  </tr>
+				</table>
+			</form>
+		</div>
+		<h3 id="heading_about"><span class="invisible_headings">About this template</span></h3>
+
+		  <p class="text">This template should be great for music blogs or something like that. It's a simple one column layout. It's quite a heavy weight on the graphics, so if you want a under 10k graphics template this is not the template for you. It works perfect in the latest versions of IE, FF and Opera. I kindly ask you to not remove the footer link if you have the free version. For more please visit my site (<a href="http://www.csstemplateheaven.com/index.php?main_page=product_info&amp;products_id=23">CssTemplateHeaven</a>)</p>
+		  
+		  <h3 id="heading_ipsum"><span class="invisible_headings">Lorem Ipsum</span></h3>
+		  
+		  <p>Finaly IE supports transparent PNG's. This makes it very easy to make cool headings with custom fonts. You can still have text headings for clean text browsers, just push them out of the way with a span class. It's very simple (try edit the headings in the stylesheet to see how it works.) Remember when you make your own headings that you have to save them as PNG 24, and that they will not work with older versions of IE</p>
+		</div>
+
+		<div id="footer"><p class="footertxt">Created by Dieter Schneider 2006 | <a href="http://www.csstemplateheaven.com">www.csstemplateheaven.com</a></p> 
+		</div>
+
+
+	</div>
+
+</body>
+</html>

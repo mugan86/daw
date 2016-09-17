@@ -1,0 +1,33 @@
+<html>
+	<head>
+	<title>Javascript - JS ARIKETAK 5</title>
+	<link rel="stylesheet" href="css/ariketa5.css" />
+	</head>
+	<body>
+		<script>
+		var herria1=prompt("Eman lehen herriaren izena: ", "Idatzi herria: Adibidez Eibar")
+		var biztanle1=prompt("Eman lehen herriaren biztanle kopurua: ", "Eman zenbaki bat: Adibidez 30000")
+		var b1=parseInt(biztanle1)
+		var herria2=prompt("Eman bigarren herriaren izena: ", "Idatzi herria: Adibidez Markina")
+		var biztanle2=prompt("Eman bigarren herriaren biztanle kopurua: ", "Eman zenbaki bat: Adibidez 39600")
+		var b2=parseInt(biztanle2)
+		if (b1==b2)
+		{
+			var mezua = (herria1 + " eta "+ herria2+" biztanle kopuru berdina dituzte")
+		}
+		else if(b1>b2)
+		{
+			var mezua =(herria1+" "+ herria2+" baino biztanle gehiago ditu")
+		}
+		else if(b1<b2)
+		{
+			var mezua =(herria2+" "+ herria1+" baino biztanle gehiago ditu")
+		}
+		</script>
+		<h1>Herrien arteko konparaketa biztanle kopuruan oinarrituta</h1>	
+		<p><script>
+		document.write(mezua)
+		</script></p>
+		
+	</body>
+</html>

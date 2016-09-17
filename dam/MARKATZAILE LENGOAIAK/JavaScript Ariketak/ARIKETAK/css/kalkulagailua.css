@@ -1,0 +1,31 @@
+h1
+{
+	font-weight:bold;
+	color: white;
+	background-color: blue;
+	text-align: center;
+	
+}
+body
+{
+	background: url(../img/kalku.jpg);
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+
+.kalkuluak
+{
+	width: 300px;
+	background-color: white;
+	margin-top: 150px;
+	margin-left: 150px;
+}
+.kokatu
+{
+	margin: 20px 0px 20px 20px;
+}
+
+.diseinua
+{
+	margin-top: 10px;
+}

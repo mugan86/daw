@@ -1,0 +1,44 @@
+<html>
+	<head>
+	<title>Javascript - JS ARIKETAK 7</title>
+	<link rel="stylesheet" href="css/ariketa5.css" />
+	</head>
+	<body>
+		<script>
+		alert("Kalkulagailu baten aurrean aurkitzen gara!!!! \nOrain bi zenbaki eskatuko zaizkigu operazioa egiteko")
+		var zenbakia1=prompt("Eman lehen zenbakia: ", "Eman zenbaki bat: Adibidez 30000")
+		var b1=parseInt(zenbakia1)
+		var zenbakia2=prompt("Eman bigarren zenbakia: ", "Eman zenbaki bat: Adibidez 30000")
+		var b2=parseInt(zenbakia2)
+		var n= prompt("Sartu egin nahi duzun operazioa: \n 1: Gehiketa \n2: Kenketa\n3: Biderketa\n4: Zatiketa", "1")
+		var operazioak=parseInt(n)
+		switch(operazioak)
+		{
+		case 1:
+		  var emaitza= b1+b2
+		  var operazioa=" batuketa"
+		  break;
+		case 2:
+		  var emaitza= b1-b2
+		  var operazioa=" kenketa"
+		  break;
+		case 3:
+		  var emaitza= b1*b2
+		  var operazioa=" biderketa"
+		  break;
+		case 4:
+		  var emaitza= b1/b2
+		  var operazioa=" zatiketa"
+		  break;
+		default:
+		  alert("Ez duzu aukera zuzena idatzi, saiatu berriro")
+		}
+	
+		</script>
+		<h1>Kalkulagailua</h1>	
+		<p><script>
+		document.write(b1+" eta " +b2+" zenbakiaren arteko "+operazioa+" "+ emaitza+ " da.")
+		</script></p>
+		
+	</body>
+</html>

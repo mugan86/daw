@@ -1,0 +1,46 @@
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Draggable adibidea: Ariketa 8</title>
+	<link href="css/ui-lightness/jquery-ui-1.10.2.custom.css" rel="stylesheet">
+	<link rel="shortcut icon" href="favicon.ico" />
+			<!--<link rel="alternate" title="Pozolería RSS" type="application/rss+xml" href="/feed.rss" />-->
+			<!-- Add jQuery library -->
+	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	<script src="js/jquery-ui-1.10.2.custom.js"></script> 
+	<script>
+	  $(document).ready(function() {
+	    $("#botoia").draggable();
+	  });
+  	</script>
+  	<style>
+  		#botoia
+  		{
+  			position:relative;
+  			top: 10px;
+  			left: 20px;
+  			width:160px;
+  			padding: 7px;
+  			color: black;
+  			font-size: 13px;
+  			font-weight: bold;
+  			text-align:center;
+  		}
+  		#kutxa
+  		{
+  			width: 500px;
+  			height: 300px;
+  			border: 1px solid #ccc;
+  			overflow:hidden;
+  		}
+  	</style>
+</head>
+<body>
+		<div id="kutxa">
+			<!--Jquery UI-k kargatzen digun CSSari egin beharko zaio erreferentzia-->
+			<div id="botoia" class="ui-corner-all ui-state-highlight">
+				Arrastratu botoia
+			</div>
+		</div>	
+</body>
+</html>

@@ -1,0 +1,101 @@
+<html>
+	<head>
+		<title>
+				Formulario
+		</title>
+		<link rel="stylesheet" type="text/css" href="css\formularioa.css">
+		<script> 
+			
+			
+			function exekutatu()
+			{
+				
+				var izena=document.Datuak.izena.value;
+				if (isNaN(izena))
+				{
+					alert('Sartutako datuak zuzena dira eta bidali egingo dira!!');
+					document.Datuak.emaitza.value= izena;
+				}
+				else
+				{
+					alert('ERROREA: EZIN DIRA ZENBAKIAK SARTU BAKARRIK!!');
+					hasieratu();
+				}				
+			}
+
+
+			function hasieratu ()
+			{
+				document.Datuak.izena.value="Ad: Anartz";
+				document.Datuak.izena.focus();
+				document.Datuak.izena.select();
+				document.Datuak.emaitza.value=" ";
+				checkOff();
+				
+
+			}
+			function checkOn()
+			{
+				form = document.forms["Datuak"]
+				for (i=0;i<form.elements.length;i++)
+				{
+					if(form.elements[i].type == "checkbox")
+					{
+						form.elements[i].checked=1;
+					}
+				}
+				
+			}
+			
+			function checkOff()
+			{
+				form = document.forms["Datuak"]
+				for (i=0;i<form.elements.length;i++)
+				{
+					if(form.elements[i].type == "checkbox")
+					{
+						form.elements[i].checked=0;
+					}
+				}
+				<!--document.Datuak.aukera1.checked=false;
+				<!--document.Datuak.aukera2.checked=false;
+				<!--document.Datuak.aukera3.checked=false;
+				<!--document.Datuak.aukera4.checked=false;-->
+
+			}
+			
+		</script> 
+
+	</head>
+	<script>
+	</script>
+	<body onLoad="hasieratu()">
+			<div class="kalkuluak">
+				<h1>Sartu datuak:</h1>
+				<div class="kokatu">
+					<form name="Datuak">
+						Eman zure izena: <input type="Text" name="izena" value="0" size="30">
+						<br>
+						<input name="aukera1" type="checkbox" />Aukera 1<br>
+						<input name="aukera2" type="checkbox"/>Aukera 2	<br>
+						<input name="aukera3" type="checkbox" />Aukera 3 <br>
+						<input name="aukera4" type="checkbox" />Aukera 4 <br>
+						<select>
+						  <option value="Selection 1">1</option>
+						  <option value="Selection 2">2</option>
+						  <option value="Selection 3">3</option>
+						  <option value="Selection 4">4</option>
+						</select> 
+						<br>
+						<input type="Button" name="bidali" value="Bidali" onClick="exekutatu()">
+						<h3>EMAITZA:</h3>
+						<!--hau da editatu ezin ahal izateko-->
+						<input type="Text" name="emaitza" size="12" disabled="true">
+						<p><a href="javascript:checkOn()">Guztiak markatu</a></p>
+						<p><a href="javascript:checkOff()">Guztiak desmarkatu</a></p>
+					</form>
+					<br>
+				</div>
+			</div>		
+	</body>
+</html>

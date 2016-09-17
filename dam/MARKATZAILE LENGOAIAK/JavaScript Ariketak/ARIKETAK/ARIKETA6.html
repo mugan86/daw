@@ -1,0 +1,24 @@
+<html>
+	<head>
+	<title>Javascript - JS ARIKETAK 6</title>
+	<link rel="stylesheet" href="css/ariketa5.css" />
+	</head>
+	<body>
+		<script>
+		var zenbakia=prompt("Eman kalkulatu nahiko den zenbakia: ", "Eman zenbaki bat: Adibidez 30000")
+		var b1=parseInt(zenbakia)
+		if (b1<0)
+		{
+			z=Math.abs(b1);
+			b1=z
+		}
+	
+		var emaitza=Math.sqrt(b1); 
+		</script>
+		<h1>Zenbaki baten erro karratua atera</h1>	
+		<p><script>
+		document.write(b1+" zenbakiaren erro karratua "+ emaitza+ " da.")
+		</script></p>
+		
+	</body>
+</html>

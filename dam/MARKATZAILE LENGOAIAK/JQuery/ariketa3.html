@@ -1,0 +1,42 @@
+<html>
+<head>
+   <title>Hide eta show efektoak</title>
+   
+	<script src="jquery-1.9.1.min.js"></script>
+	<style type="text/css">
+		.irudi
+		{
+
+			background-image: url(img/paisajea.jpg);
+			background-repeat: no-repeat;
+			width: 512px;
+			height: 341px;
+
+
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+   //aquí meteremos las instrucciones que modifiquen el DOM
+	   		$(".show").click(function(){
+			  alert("Paisajea bistaratzen!!!");
+			  $(".irudi").show(1600);
+			});
+			$(".hide").click(function(){
+				alert("Paisajea desagertzen!!!");
+				$(".irudi").hide(1000);
+			});
+		}); 
+	</script>
+	
+</head>
+
+<body>
+	<div class="irudi">
+		<!--<img class="irudi" src="img\paisajea.jpg" alt="" />-->
+	</div>
+	<button class="hide">Hide</button>
+	<button class="show">Show</button>
+	<a href="#" class="hide" >Ezkutatu</a> // <a href="#" class="show" >Erakutsi</a>
+</body>
+</html> 

@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>
+				Kalkulagailua
+		</title>
+		<link rel="stylesheet" type="text/css" href="css\kalkulagailua.css">
+		<script> 
+			function kalkulatu(operazioa){ 
+			    var zenbaki1 = document.kalkulagailua.zenbaki1.value;
+			    var zenbaki2 = document.kalkulagailua.zenbaki2.value;
+			    <!-- Zenbakiak ez direnean mezu ateratzeko-->
+			    if (isNaN(zenbaki1) || isNaN(zenbaki2))
+			    {
+			    	alert('Zenbakiak sartu behar dira!!!');
+			    	hasieratu();
+			    }
+			    
+			    var result = eval(zenbaki1 + operazioa + zenbaki2) 
+			    document.kalkulagailua.emaitza.value = result 
+			    document.kalkulagailua.Garbitu.focus();
+			} 
+			function hasieratu ()
+			{
+				document.kalkulagailua.zenbaki1.value=0;
+				document.kalkulagailua.zenbaki2.value=0;
+				document.kalkulagailua.emaitza.value=0;
+				document.kalkulagailua.zenbaki1.focus();
+				document.kalkulagailua.zenbaki1.select();
+
+			}
+		</script> 
+
+	</head>
+	<script>
+	</script>
+	<body onLoad="hasieratu()">
+			<div class="kalkuluak">
+				<h1>KALKULAGAILUA</h1>
+				<div class="kokatu">
+					<form name="kalkulagailua">
+						<input type="Text" name="zenbaki1" value="0" size="12">
+						<br>
+						<input type="Text" name="zenbaki2" value="0" size="12">
+						<br>
+						<br>
+						<input type="Button" name="gehiketa" value="+" onClick="kalkulatu('+')">
+						<input type="Button" name="kenketa" value="-" onClick="kalkulatu('-')">
+						<input type="Button" name="biderketa" value="x" onClick="kalkulatu('*')">
+						<input type="Button" name="zatiketa" value="/" onClick="kalkulatu('/')">
+						<br>
+						<br>
+						<input type="Button" name="Garbitu" value="Egin beste eragiketaren bat" onClick="hasieratu()">
+						<h3>EMAITZA:</h3>
+						<!--hau da editatu ezin ahal izateko-->
+						<input type="Text" name="emaitza" value="0" size="12" disabled="true">
+					</form>
+					<br>
+				</div>
+			</div>		
+	</body>
+</html>

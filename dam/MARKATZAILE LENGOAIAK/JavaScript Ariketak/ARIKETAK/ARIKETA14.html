@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>
+		</title>
+	</head>
+	<body>
+
+	<script>
+
+		var hitza=prompt("Eman zure izena:", "Anartz Mugika")
+		var hutsunea=" "
+		var karakterea=""
+		var hitzberri=""
+		var i=0
+		for(i=0;i<hitza.length; i++)
+		{
+			karakterea=hitza.charAt(i)
+
+			if (karakterea!=hutsunea)
+			{
+				if(i!=hitza.length-1)
+				{
+					<!--Azkenengo karakterea ez den bitartean eta ez badago hutsunea-->
+					karakterea=karakterea+"-"
+					hitzberri=hitzberri + karakterea
+				} 
+				else
+				{
+					<!--Azkenengo karakterea denean eta ez badago hutsunea-->
+					hitzberri=hitzberri+karakterea
+				}
+				
+			}
+			else if (karakterea=hutsunea)
+			{
+				<!--Hurrengo karakterea hutsune bat baldin bada...-->
+				hitzberri=hitzberri+""
+			}
+		}
+		alert('Testua honela geratuko da: '+hitzberri)
+		
+	</script>
+	</body>
+</html>

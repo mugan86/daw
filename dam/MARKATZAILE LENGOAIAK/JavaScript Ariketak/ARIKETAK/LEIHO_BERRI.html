@@ -1,0 +1,33 @@
+<html>
+	<head>
+	<title>Javascript - JS ARIKETAK LEIHO BERRIA ZABALDU</title>
+	<script language=javascript>
+
+		function helbidea(){
+
+		url = document.nabigatzailea.atalak.options[document.nabigatzailea.atalak.selectedIndex].value
+
+		if (url != " ez") window.location = url;
+
+		}
+
+	</script>
+	</head>
+	<body>
+		<form name="nabigatzailea">
+		<select name="atalak" onchange="helbidea()">
+		<option value="ez">--------------------------------------
+		<option value="ez">Egunkariak
+		<option value="ez">--------------------------------------
+		<option value="http://www.marca.com">Marca
+		<option value="http://diariovasco.com">El diario vasco
+		<option value="ez">--------------------------------------
+		<option value="ez">Webgune Interesgarriak
+		<option value="ez">--------------------------------------
+		<option value="http://www.youtube.com">Youtube
+		<option value="http://www.desarrolloweb.com">Desarrollo Web
+		<option value="http://www.sgoliver.net/blog/?page_id=2935">Android-i buruz ikasteko webgunea
+		</select>
+		</form> 
+	</body>
+</html>

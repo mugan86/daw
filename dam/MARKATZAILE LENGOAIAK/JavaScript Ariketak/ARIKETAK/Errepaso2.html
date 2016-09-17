@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>Kalkulagailua</title>
+<script>
+	function hasiera()
+	{
+		document.kalku.zenbaki1.value=0;
+		document.kalku.zenbaki2.value=0;
+		document.kalku.zenbaki1.focus();
+		document.kalku.zenbaki1.select();
+		document.kalku.emaitza.value=0;
+	}
+	function kalkulatu(operazioa)
+	{
+		zenbaki1=document.kalku.zenbaki1.value;
+		zenbaki2=document.kalku.zenbaki2.value;
+		if(isNaN(zenbaki1)|| isNaN(zenbaki2))
+		{
+			alert("Ezingo da eragiketarik egin zenbakiak sartu behar direlako!!! Saiatu berriro!!");
+			hasiera();
+		}
+		var emaitza=eval(zenbaki1+operazioa+zenbaki2);
+		document.kalku.emaitza.value=emaitza;
+		document.kalku.garbitu.focus();
+	}
+	function minus1()
+	{
+		zenbaki1=document.kalku.zenbaki1.value;
+		if(!isNaN(zenbaki1)|| zenbaki1==0)
+		{
+			zenbaki1=0-zenbaki1;
+			document.kalku.zenbaki1.value=zenbaki1;
+		}
+		document.kalku.zenbaki1.focus();
+		document.kalku.zenbaki1.select();
+	}
+	function minus2()
+	{
+		zenbaki2=document.kalku.zenbaki2.value;
+		if(!isNaN(zenbaki2)|| zenbaki2==0)
+		{
+			zenbaki2=0-zenbaki2;
+			document.kalku.zenbaki2.value=zenbaki2;
+		}
+		document.kalku.zenbaki2.focus();
+		document.kalku.zenbaki2.select();
+	}
+	function checkOn()
+	{
+		form=document.forms["markatu"];
+		for(i=0; i<form.elements.length;i++)
+		{
+			if (form.elements[i].type=="checkbox")
+			{
+				form.elements[i].checked=1;
+			}
+		}
+	}
+	function checkOff()
+	{
+		var i=0;
+		form=document.forms["markatu"];
+		for(i=0;i<form.elements.length;i++)
+		{
+			if(form.elements[i].type=="checkbox")
+			{
+				form.elements[i].checked=0;
+			}
+		}
+	}
+
+</script>
+</head>
+<body onLoad="hasiera()">
+	<form name="kalku">
+			<label>Lehen zenbakia:</label><br>
+			<input type="text" name="zenbaki1" value="0"> <input type="Button" value="-/+" onClick="minus1()"><br>
+			<label>Bigarren zenbakia: </label><br>
+			<input type="text" name="zenbaki2" value="0"> <input type="Button" value="-/+" onClick="minus2()"><br>
+			<input type="Button" name="gehiketa" value="+" onClick="kalkulatu('+')">
+			<input type="Button" name="kenketa" value="-" onClick="kalkulatu('-')">
+			<input type="Button" name="biderketa" value="x" onClick="kalkulatu('*')">
+			<input type="Button" name="gehiketa" value="/" onClick="kalkulatu('/')">
+			<input type="Button" name="hondarra" value="%" onClick="kalkulatu('%')"<br> <br>
+			<h3>Emaitza:</h3>
+			<input type="text" name="emaitza" disabled="true">
+			<input type="Button" name="garbitu" value="Beste eragiketa bat" onClick="hasiera()">
+	</form>
+	<form name="markatu">
+			<input type="checkbox" name="aukera1"/> Aukera 1<br>
+			<input type="checkbox" name="aukera2"/> Aukera 2<br>
+			<input type="checkbox" name="aukera3"/> Aukera 3<br>
+			<input type="checkbox" name="aukera4"/> Aukera 4<br>
+			<input type="checkbox" name="aukera5"/> Aukera 5<br>
+			<input type="checkbox" name="aukera6"/> Aukera 6<br>
+			<p><a href="javascript:checkOn()">Guztiak markatu</a> || <a href="javascript:checkOff()">Guztiak desmarkatu</a></p>
+			
+	</form>
+</body>
+
+
+
+</html>
