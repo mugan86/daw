@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script type="text/javascript" src="Ariketa1.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        try
+        {
+            var zenbaki1 = prompt("Idatzi zenbaki bat eta faktoriala kalkulatuko dut");
+            if (isNaN(zenbaki1))
+                throw "Ez da zenbakia";
+            if (zenbaki1 < 0)
+                throw "Ez du faktorialik";
+            alert("Faktoriala " + faktoriala(zenbaki1) + " da");
+        }
+        catch(err)
+        {
+            alert(err);
+        }
+
+    </script>
+</body>
+</html>

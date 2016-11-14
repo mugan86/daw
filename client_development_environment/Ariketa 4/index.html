@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script type="text/javascript" src="Ariketa4.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        var pasahitza = prompt("Sartu pasahitza");
+        if (luzera(pasahitza))
+        {
+            var pasahitzar = prompt("Errepikatu pasahitza");
+
+            if (konprobatu(pasahitza, pasahitzar)) {
+                alert("Ongi etorri");
+            }
+            else {
+                alert("Pasahitza okerra");
+            }
+        }
+        else
+        {
+            /*
+            Hemen errorea zegoen, >=
+            */
+            alert("Pasahitzak gutxienez 6 karakter behar ditu")
+        }
+
+    </script>
+</body>
+</html>
